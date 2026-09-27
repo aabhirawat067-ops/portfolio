@@ -1,23 +1,72 @@
-# Hi, I'm Abhishek Rawat 👋
+# 👋 Hey, I'm Abhishek Rawat
 
-💻 Developer | 🚀 Building projects | 🧠 Learning & Creating
+### 💻 Developer • 🚀 Builder • 🧠 Learner
 
-## 🌐 My Portfolio
+> **"I don't chase the future — I build what comes next."**
 
-👉 [Visit My Portfolio](https://aabhirawat067-ops.github.io/portfolio/)
+---
 
-## 🚀 Featured Project
+## 🌐 About Me
 
-### 🍎 Smart India Nutrition
+I'm **Abhishek Rawat**, a passionate developer who enjoys turning ideas into real projects.
 
-A web project focused on making nutrition information simple and accessible.
+I love exploring new technologies, building useful web experiences, solving problems, and continuously improving my skills.
 
-👉 [View Project](https://smart-india-nutrition.vercel.app/)
+- 🔭 Currently working on personal projects
+- 🌱 Learning and improving every day
+- 💡 Interested in Web Development & Technology
+- 🚀 Building projects and experimenting with new ideas
+- 🎯 Goal: Keep learning. Keep building. Keep growing.
 
-## 🛠️ Skills
+---
 
+## 🚀 My Portfolio
+
+### 🌟 Personal Portfolio Website
+
+A personal portfolio showcasing my projects, skills, and journey as a developer.
+
+👉 **[🌐 Visit My Portfolio](https://aabhirawat067-ops.github.io/portfolio/)**
+
+---
+
+## 🍎 Featured Project
+
+### Smart India Nutrition
+
+A web project designed to make nutrition-related information simple, useful, and accessible.
+
+**Tech:** HTML • CSS • JavaScript
+
+👉 **[🚀 View Smart India Nutrition](https://smart-india-nutrition.vercel.app/)**
+
+---
+
+## 🛠️ Tech Stack
+
+### 💻 Languages & Web
 - HTML
 - CSS
 - JavaScript
-- Git & GitHub
-  
+
+### ⚙️ Tools
+- Git
+- GitHub
+- VS Code
+
+### 🧠 Other Skills
+- Problem Solving
+- Creative Thinking
+- Learning & Experimentation
+
+---
+
+## 📊 GitHub
+
+I use GitHub to build, experiment, and share my projects.
+
+```text
+💻 Code        → Build & Experiment
+🚀 Projects    → Turn Ideas Into Reality
+🧠 Learning    → Improve Every Day
+🌐 Portfolio   → Showcase My Work
