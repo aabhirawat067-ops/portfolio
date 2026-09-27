@@ -1,393 +1,430 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Abhishek Rawat | Developer</title>
+  <title>Abhishek Rawat | Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0a0a0f;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* NAVBAR */
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
+      line-height: 1.6;
+    }
 
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 8%;
-            background: rgba(10, 10, 15, 0.9);
-            border-bottom: 1px solid #222;
-        }
+    header {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
 
-        nav h2 {
-            color: #00e5ff;
-        }
+    .hero {
+      animation: fadeUp 1s ease;
+    }
 
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            margin-left: 25px;
-            transition: 0.3s;
-        }
+    .tag {
+      color: #58a6ff;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
 
-        nav a:hover {
-            color: #00e5ff;
-        }
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
 
-        /* HERO */
+    .highlight {
+      color: #58a6ff;
+    }
 
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding: 0 8%;
-        }
+    .intro {
+      color: #8b949e;
+      font-size: 20px;
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
 
-        .hero-content {
-            max-width: 800px;
-        }
+    .btn {
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #f0f6fc;
+      border: 1px solid #30363d;
+      background: #161b22;
+      margin: 5px 5px 5px 0;
+      transition: 0.3s;
+    }
 
-        .hello {
-            color: #00e5ff;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
+    .btn:hover {
+      transform: translateY(-3px);
+      border-color: #58a6ff;
+    }
 
-        .hero h1 {
-            font-size: clamp(45px, 8vw, 80px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 55px 20px;
+    }
 
-        .hero h1 span {
-            color: #00e5ff;
-        }
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
 
-        .hero h2 {
-            color: #aaa;
-            font-size: 25px;
-            margin-bottom: 20px;
-        }
+    .about {
+      color: #c9d1d9;
+      max-width: 750px;
+    }
 
-        .hero p {
-            color: #999;
-            max-width: 650px;
-            font-size: 18px;
-        }
+    .quote {
+      margin-top: 25px;
+      padding: 18px 20px;
+      border-left: 3px solid #58a6ff;
+      background: #161b22;
+      color: #c9d1d9;
+      font-style: italic;
+      border-radius: 0 8px 8px 0;
+    }
 
-        .buttons {
-            margin-top: 30px;
-        }
+    /* PROJECT */
 
-        .btn {
-            display: inline-block;
-            padding: 12px 22px;
-            margin-right: 10px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+    .project {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 28px;
+      transition: 0.3s;
+    }
 
-        .primary {
-            background: #00e5ff;
-            color: #000;
-        }
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: #58a6ff;
+    }
 
-        .primary:hover {
-            transform: translateY(-3px);
-        }
+    .project h3 {
+      color: #58a6ff;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
 
-        .secondary {
-            border: 1px solid #333;
-            color: #fff;
-        }
+    .project p {
+      color: #8b949e;
+      margin-bottom: 20px;
+    }
 
-        .secondary:hover {
-            border-color: #00e5ff;
-            color: #00e5ff;
-        }
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
 
-        /* SECTIONS */
+    .tech span {
+      font-size: 12px;
+      padding: 5px 9px;
+      border-radius: 15px;
+      background: #21262d;
+      color: #8b949e;
+    }
 
-        section {
-            padding: 100px 8%;
-        }
+    /* SKILLS */
 
-        .section-title {
-            font-size: 38px;
-            margin-bottom: 30px;
-        }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-        .section-title span {
-            color: #00e5ff;
-        }
+    .skill {
+      background: #161b22;
+      border: 1px solid #30363d;
+      padding: 9px 15px;
+      border-radius: 20px;
+      color: #c9d1d9;
+      transition: 0.3s;
+    }
 
-        .about-text {
-            max-width: 750px;
-            color: #aaa;
-            font-size: 18px;
-        }
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: #58a6ff;
+    }
 
-        /* SKILLS */
+    /* CONTACT */
 
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+    .contact {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 28px;
+    }
 
-        .skill {
-            padding: 10px 18px;
-            border: 1px solid #292929;
-            border-radius: 30px;
-            color: #ccc;
-        }
+    .contact p {
+      color: #8b949e;
+      margin-bottom: 20px;
+    }
 
-        /* PROJECT */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-        .project {
-            max-width: 750px;
-            padding: 30px;
-            border: 1px solid #24242a;
-            border-radius: 16px;
-            background: #111116;
-            transition: 0.3s;
-        }
+    /* FOOTER */
 
-        .project:hover {
-            transform: translateY(-5px);
-            border-color: #00e5ff;
-        }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #8b949e;
+      border-top: 1px solid #21262d;
+      margin-top: 30px;
+    }
 
-        .project h3 {
-            font-size: 25px;
-            margin-bottom: 12px;
-        }
+    /* ANIMATION */
 
-        .project p {
-            color: #999;
-            margin-bottom: 20px;
-        }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
 
-        .project-link {
-            color: #00e5ff;
-            text-decoration: none;
-        }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-        /* CONTACT */
+    /* MOBILE */
 
-        .contact p {
-            color: #aaa;
-            margin-bottom: 20px;
-        }
+    @media (max-width: 600px) {
 
-        /* FOOTER */
+      header {
+        min-height: 75vh;
+      }
 
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #222;
-            color: #666;
-        }
+      .intro {
+        font-size: 17px;
+      }
 
-        /* MOBILE */
+      section {
+        padding: 40px 20px;
+      }
 
-        @media (max-width: 700px) {
-
-            nav {
-                padding: 18px 5%;
-            }
-
-            nav a {
-                margin-left: 10px;
-                font-size: 14px;
-            }
-
-            .hero {
-                padding: 0 5%;
-            }
-
-            section {
-                padding: 70px 5%;
-            }
-        }
-    </style>
+      .btn {
+        margin-bottom: 8px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+  <!-- HERO -->
 
-    <nav>
-        <h2>AR.</h2>
+  <header>
+    <div class="hero">
 
-        <div>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+      <div class="tag">
+        👋 Welcome to my portfolio
+      </div>
 
+      <h1>
+        Hi, I'm <span class="highlight">Abhi Rawat</span>
+      </h1>
 
-    <!-- HERO -->
+      <p class="intro">
+        I'm a passionate learner who loves technology, creativity,
+        and building things that make a difference.
+      </p>
 
-    <header class="hero">
+      <a href="#projects" class="btn">
+        View Project 🚀
+      </a>
 
-        <div class="hero-content">
+      <a href="#contact" class="btn">
+        Contact Me 📬
+      </a>
 
-            <div class="hello">Hello, I'm</div>
-
-            <h1>
-                Abhishek <span>Rawat</span>
-            </h1>
-
-            <h2>
-                Developer & Creative Builder
-            </h2>
-
-            <p>
-                I build creative digital experiences, explore new technologies,
-                and turn ideas into real-world projects.
-            </p>
-
-            <div class="buttons">
-
-                <a href="#projects" class="btn primary">
-                    View Projects
-                </a>
-
-                <a href="#contact" class="btn secondary">
-                    Contact Me
-                </a>
-
-            </div>
-
-        </div>
-
-    </header>
+    </div>
+  </header>
 
 
-    <!-- ABOUT -->
+  <!-- ABOUT -->
 
-    <section id="about">
+  <section id="about">
 
-        <h2 class="section-title">
-            About <span>Me</span>
-        </h2>
+    <h2>About Me</h2>
 
-        <p class="about-text">
-            I'm a developer passionate about technology, programming and
-            building useful digital experiences. I enjoy learning new
-            technologies and turning ideas into projects.
-        </p>
+    <p class="about">
+      I enjoy exploring technology, learning new skills and working
+      on creative projects. I believe in learning by building and
+      turning ideas into something real.
+    </p>
 
-    </section>
+    <div class="quote">
+      “I don't chase the future — I build what comes next.”
+    </div>
 
-
-    <!-- SKILLS -->
-
-    <section id="skills">
-
-        <h2 class="section-title">
-            My <span>Skills</span>
-        </h2>
-
-        <div class="skills">
-
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Git</div>
-            <div class="skill">GitHub</div>
-
-        </div>
-
-    </section>
+  </section>
 
 
-    <!-- PROJECTS -->
+  <!-- PROJECTS -->
 
-    <section id="projects">
+  <section id="projects">
 
-        <h2 class="section-title">
-            Featured <span>Project</span>
-        </h2>
+    <h2>🚀 My Project</h2>
 
-        <div class="project">
+    <div class="project">
 
-            <h3>🍎 Smart India Nutrition</h3>
+      <h3>🍎 Smart India Nutrition</h3>
 
-            <p>
-                A project focused on making nutrition information
-                simple, useful and accessible.
-            </p>
+      <p>
+        A web project focused on making nutrition information
+        simple, useful and accessible.
+      </p>
 
-            <a href="#" class="project-link">
-                View Project →
-            </a>
+      <div class="tech">
 
-        </div>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
 
-    </section>
-<a href="#" class="btn"><a href="#" class="btn">View Project →</a> →</a>
+      </div>
 
-    <!-- CONTACT -->
+      <a
+        href="https://smart-india-nutrition.vercel.app/"
+        target="_blank"
+        class="btn">
 
-    <section id="contact" class="contact">
+        Live Project →
 
-        <h2 class="section-title">
-            Let's <span>Connect</span>
-        </h2>
+      </a>
 
-        <p>
-            Interested in working together or just want to say hello?
-        </p>
+    </div>
 
-        <a href="mailto:your@email.com" class="btn primary">
-            Email Me
+  </section>
+
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+
+    <h2>💻 Skills</h2>
+
+    <div class="skills">
+
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">Git</span>
+      <span class="skill">GitHub</span>
+      <span class="skill">VS Code</span>
+      <span class="skill">Problem Solving</span>
+      <span class="skill">Creative Thinking</span>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <h2>📬 Contact Me</h2>
+
+    <div class="contact">
+
+      <p>
+        Have an idea, want to collaborate, or just want to say hello?
+        Feel free to connect with me.
+      </p>
+
+      <div class="contact-links">
+
+        <!-- EMAIL -->
+        <a
+          href="mailto:aabhirawat067@gmail.com"
+          class="btn">
+
+          📧 Email
+
         </a>
 
-    </section>
-html
-<section>
-  <h2>📬 Contact Me</h2>
+        <!-- GITHUB -->
+        <a
+          href="https://github.com/aabhirawat067-ops"
+          target="_blank"
+          class="btn">
 
-  <p class="about">
-    Have an idea, want to collaborate, or just want to say hello?
-    Feel free to connect with me.
-  </p>
+          💻 GitHub
 
-  <div class="contact-links">
-    <a href="mailto:abhishekrawat6087">📧 Email</a>
-    <a href="https://github.com/aabhirawat067-ops" target="_blank">💻 GitHub</a>
-  </div>
-</section>
+        </a>
 
-    <!-- FOOTER -->
 
-    <footer>
+        <!-- INSTAGRAM -->
+        <a
+          href="https://instagram.com/abhi_rawat027?stkn=OXZlMXBzb2FhazF2"
+          target="_blank"
+          class="btn">
 
-        © 2026 Abhishek Rawat • Built with HTML & CSS
+          📸 Instagram
 
-    </footer>
+        </a>
+
+
+        <!-- FACEBOOK -->
+        <a
+          href="https://www.facebook.com/share/1E2dDtmNbi/"
+          target="_blank"
+          class="btn">
+
+          👍 Facebook
+
+        </a>
+
+
+        <!-- LINKEDIN -->
+        <a
+          href="https://www.linkedin.com/in/abhishek-rawat-112b052a1?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          target="_blank"
+          class="btn">
+
+          💼 LinkedIn
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Abhishek Rawat • Built with ❤️ and curiosity
+
+  </footer>
 
 </body>
 </html>
