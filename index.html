@@ -1,11 +1,11 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Abhishek Rawat | Portfolio</title>
+  <title>Abhishek Rawat | Full Stack Developer</title>
 
   <style>
     * {
@@ -57,7 +57,7 @@
     .intro {
       color: #8b949e;
       font-size: 20px;
-      max-width: 650px;
+      max-width: 700px;
       margin-bottom: 28px;
     }
 
@@ -91,7 +91,7 @@
 
     .about {
       color: #c9d1d9;
-      max-width: 750px;
+      max-width: 800px;
     }
 
     .quote {
@@ -102,9 +102,16 @@
       color: #c9d1d9;
       font-style: italic;
       border-radius: 0 8px 8px 0;
+      max-width: 800px;
     }
 
-    /* PROJECT */
+    /* PROJECTS */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
     .project {
       background: #161b22;
@@ -122,19 +129,19 @@
     .project h3 {
       color: #58a6ff;
       margin-bottom: 10px;
-      font-size: 22px;
+      font-size: 21px;
     }
 
     .project p {
       color: #8b949e;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .tech {
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .tech span {
@@ -146,6 +153,16 @@
     }
 
     /* SKILLS */
+
+    .skill-group {
+      margin-bottom: 25px;
+    }
+
+    .skill-group h3 {
+      color: #58a6ff;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
 
     .skills {
       display: flex;
@@ -165,6 +182,31 @@
     .skill:hover {
       transform: translateY(-3px);
       border-color: #58a6ff;
+    }
+
+    /* EDUCATION */
+
+    .education-card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 14px;
+      padding: 25px;
+      margin-bottom: 15px;
+      transition: 0.3s;
+    }
+
+    .education-card:hover {
+      border-color: #58a6ff;
+      transform: translateY(-3px);
+    }
+
+    .education-card h3 {
+      color: #58a6ff;
+      margin-bottom: 6px;
+    }
+
+    .education-card p {
+      color: #8b949e;
     }
 
     /* CONTACT */
@@ -191,10 +233,20 @@
 
     footer {
       text-align: center;
-      padding: 40px 20px;
+      padding: 45px 20px;
       color: #8b949e;
       border-top: 1px solid #21262d;
       margin-top: 30px;
+    }
+
+    footer strong {
+      color: #58a6ff;
+    }
+
+    footer .footer-name {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #f0f6fc;
     }
 
     /* ANIMATION */
@@ -213,7 +265,7 @@
 
     /* MOBILE */
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
       header {
         min-height: 75vh;
@@ -225,6 +277,10 @@
 
       section {
         padding: 40px 20px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
       }
 
       .btn {
@@ -250,12 +306,12 @@
       </h1>
 
       <p class="intro">
-        I'm a passionate learner who loves technology, creativity,
-        and building things that make a difference.
+        Full Stack Developer passionate about building modern,
+        responsive and user-friendly web applications.
       </p>
 
       <a href="#projects" class="btn">
-        View Project 🚀
+        View Projects 🚀
       </a>
 
       <a href="#contact" class="btn">
@@ -264,20 +320,26 @@
 
     </div>
   </header>
-<img src="Image/profile.jpg" alt="Abhishek Rawat"
-     class="profile-photo"
-     style="width:220px;height:220px;object-fit:cover;border-radius:50%;">
+
 
   <!-- ABOUT -->
 
   <section id="about">
 
-    <h2>About Me</h2>
+    <h2>👨‍💻 About Me</h2>
 
     <p class="about">
-      I enjoy exploring technology, learning new skills and working
-      on creative projects. I believe in learning by building and
-      turning ideas into something real.
+      I'm <strong>Abhishek Rawat</strong>, a Full Stack Developer with
+      a passion for building modern, responsive, and user-friendly web
+      applications. I enjoy turning ideas into practical digital
+      experiences using technologies like React, Next.js, Node.js,
+      Express, and Tailwind CSS. I also work with APIs, databases,
+      Git, and modern deployment platforms.
+      <br><br>
+      I'm continuously learning and improving my development skills
+      by building real-world projects and exploring new technologies.
+      My goal is to create clean, scalable, and meaningful applications
+      while growing as a professional software developer.
     </p>
 
     <div class="quote">
@@ -287,37 +349,128 @@
   </section>
 
 
-  <!-- PROJECT -->
+  <!-- PROJECTS -->
 
   <section id="projects">
 
-    <h2>🚀 My Project</h2>
+    <h2>🚀 My Projects</h2>
 
-    <div class="project">
+    <div class="projects-grid">
 
-      <h3>🍎 Smart India Nutrition</h3>
+      <!-- MOVIE EXPLORER -->
 
-      <p>
-        A web project focused on making nutrition information
-        simple, useful and accessible.
-      </p>
+      <div class="project">
 
-      <div class="tech">
+        <h3>🎬 Movie Explorer</h3>
 
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
+        <p>
+          A full-stack movie discovery platform with trending,
+          popular and upcoming movies, search, genre filters,
+          movie details and favorites.
+        </p>
+
+        <div class="tech">
+          <span>React</span>
+          <span>Vite</span>
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>TMDB API</span>
+        </div>
+
+        <a
+          href="https://aabhirawat067-ops.github.io/movie-explorer/"
+          target="_blank"
+          class="btn">
+          Live Demo →
+        </a>
+
+        <a
+          href="https://github.com/aabhirawat067-ops/movie-explorer"
+          target="_blank"
+          class="btn">
+          Frontend →
+        </a>
+
+        <a
+          href="https://github.com/aabhirawat067-ops/Movie-backend-"
+          target="_blank"
+          class="btn">
+          Backend →
+        </a>
 
       </div>
 
-      <a
-        href="https://smart-india-nutrition.vercel.app/"
-        target="_blank"
-        class="btn">
 
-        Live Project →
+      <!-- WEATHER APP -->
 
-      </a>
+      <div class="project">
+
+        <h3>🌤️ Weather Forecast App</h3>
+
+        <p>
+          A responsive weather application with city search,
+          current location detection, current weather and
+          a 7-day forecast with dark and light mode.
+        </p>
+
+        <div class="tech">
+          <span>React</span>
+          <span>Vite</span>
+          <span>JavaScript</span>
+          <span>Open-Meteo API</span>
+        </div>
+
+        <a
+          href="https://aabhirawat067-ops.github.io/weather-forecast-app/"
+          target="_blank"
+          class="btn">
+          Live Demo →
+        </a>
+
+        <a
+          href="https://github.com/aabhirawat067-ops/weather-forecast-app"
+          target="_blank"
+          class="btn">
+          GitHub →
+        </a>
+
+      </div>
+
+
+      <!-- NUTRISMART -->
+
+      <div class="project">
+
+        <h3>🍎 Smart India Nutrition</h3>
+
+        <p>
+          A nutrition-focused web application providing food
+          information and personalized nutrition-related
+          recommendations with backend integration.
+        </p>
+
+        <div class="tech">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>PostgreSQL</span>
+        </div>
+
+        <a
+          href="https://smart-india-nutrition.vercel.app/"
+          target="_blank"
+          class="btn">
+          Live Project →
+        </a>
+
+        <a
+          href="https://github.com/Shubham-hash1/Smart-India-Nutrition.git"
+          target="_blank"
+          class="btn">
+          GitHub →
+        </a>
+
+      </div>
 
     </div>
 
@@ -330,16 +483,104 @@
 
     <h2>💻 Skills</h2>
 
-    <div class="skills">
 
-      <span class="skill">HTML</span>
-      <span class="skill">CSS</span>
-      <span class="skill">JavaScript</span>
-      <span class="skill">Git</span>
-      <span class="skill">GitHub</span>
-      <span class="skill">VS Code</span>
-      <span class="skill">Problem Solving</span>
-      <span class="skill">Creative Thinking</span>
+    <div class="skill-group">
+
+      <h3>Programming Languages</h3>
+
+      <div class="skills">
+        <span class="skill">C</span>
+        <span class="skill">C++</span>
+        <span class="skill">Python</span>
+        <span class="skill">JavaScript</span>
+      </div>
+
+    </div>
+
+
+    <div class="skill-group">
+
+      <h3>Frontend</h3>
+
+      <div class="skills">
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">React</span>
+        <span class="skill">Next.js</span>
+        <span class="skill">Tailwind CSS</span>
+      </div>
+
+    </div>
+
+
+    <div class="skill-group">
+
+      <h3>Backend & Database</h3>
+
+      <div class="skills">
+        <span class="skill">Node.js</span>
+        <span class="skill">Express.js</span>
+        <span class="skill">REST API</span>
+        <span class="skill">PostgreSQL</span>
+      </div>
+
+    </div>
+
+
+    <div class="skill-group">
+
+      <h3>Tools & Deployment</h3>
+
+      <div class="skills">
+        <span class="skill">Git</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">VS Code</span>
+        <span class="skill">Vite</span>
+        <span class="skill">GitHub Pages</span>
+        <span class="skill">Render</span>
+        <span class="skill">Vercel</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EDUCATION -->
+
+  <section id="education">
+
+    <h2>🎓 Education</h2>
+
+
+    <div class="education-card">
+
+      <h3>Master of Computer Applications (MCA)</h3>
+
+      <p>
+        HNB Garhwal University
+      </p>
+
+      <p>
+        Passed Out: 2026
+      </p>
+
+    </div>
+
+
+    <div class="education-card">
+
+      <h3>Bachelor of Computer Applications (BCA)</h3>
+
+      <p>
+        Advance Institute of Science and Technology,
+        Selaqui, Dehradun
+      </p>
+
+      <p>
+        Passed Out: 2023
+      </p>
 
     </div>
 
@@ -361,9 +602,11 @@
 
       <div class="contact-links">
 
+
         <!-- EMAIL -->
+
         <a
-          href="mailto:abhishekrawat6087gmail.com"
+          href="mailto:abhishekrawat6087@gmail.com"
           class="btn">
 
           📧 Email
@@ -372,6 +615,7 @@
 
 
         <!-- GITHUB -->
+
         <a
           href="https://github.com/aabhirawat067-ops"
           target="_blank"
@@ -382,9 +626,22 @@
         </a>
 
 
-        <!-- INSTAGRAM -->
+        <!-- LINKEDIN -->
+
         <a
-          href="https://www.instagram.com/abhi_rawat027?stkn=OXZlMXBzb2FhazF2"
+          href="https://www.linkedin.com/in/abhishek-rawat-112b052a1"
+          target="_blank"
+          class="btn">
+
+          💼 LinkedIn
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+          href="https://www.instagram.com/abhi_rawat027"
           target="_blank"
           class="btn">
 
@@ -394,23 +651,13 @@
 
 
         <!-- FACEBOOK -->
+
         <a
           href="https://www.facebook.com/share/1E2dDtmNbi/"
           target="_blank"
           class="btn">
 
           👍 Facebook
-
-        </a>
-
-
-        <!-- LINKEDIN -->
-        <a
-          href="https://www.linkedin.com/in/abhishek-rawat-112b052a1?utm_source=share_via&utm_content=profile&utm_medium=member_android"
-          target="_blank"
-          class="btn">
-
-          💼 LinkedIn
 
         </a>
 
@@ -425,9 +672,21 @@
 
   <footer>
 
-    © 2026 Abhishek Rawat • Built with ❤️ and curiosity
+    <div class="footer-name">
+      Made with ❤️ by <strong>Abhishek Rawat</strong>
+    </div>
+
+    <p>
+      Full Stack Developer • where ideas meet code
+    </p>
+
+    <p>
+      © 2026 Abhishek Rawat. All rights reserved.
+    </p>
 
   </footer>
 
+
 </body>
 </html>
+```
