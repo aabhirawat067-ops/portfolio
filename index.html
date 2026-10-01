@@ -1,692 +1,713 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta name="description" content="Abhishek Rawat | Full Stack Developer Portfolio">
   <title>Abhishek Rawat | Full Stack Developer</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --bg:#050816;
+      --bg2:#081126;
+      --card:rgba(10,20,42,.72);
+      --card2:rgba(13,27,54,.62);
+      --text:#f4f7ff;
+      --muted:#9caac7;
+      --line:rgba(100,170,255,.18);
+      --blue:#38bdf8;
+      --purple:#8b5cf6;
+      --cyan:#22d3ee;
+      --pink:#d946ef;
+      --green:#2dd4bf;
+      --shadow:0 18px 60px rgba(0,0,0,.32);
     }
 
-    html {
-      scroll-behavior: smooth;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(56,189,248,.13), transparent 26%),
+        radial-gradient(circle at 88% 12%, rgba(139,92,246,.15), transparent 28%),
+        radial-gradient(circle at 50% 75%, rgba(34,211,238,.07), transparent 32%),
+        linear-gradient(135deg,var(--bg),var(--bg2) 55%,#050914);
+      min-height:100vh;
+      overflow-x:hidden;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0d1117;
-      color: #f0f6fc;
-      line-height: 1.6;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.28;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+      background-size:55px 55px;
+      mask-image:linear-gradient(to bottom,black,transparent 90%);
     }
 
-    header {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-      max-width: 1000px;
-      margin: auto;
-      padding: 60px 20px;
+    a{color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+
+    /* NAVBAR */
+    nav{
+      position:sticky;
+      top:14px;
+      z-index:100;
+      width:min(1120px,92%);
+      margin:14px auto 0;
+      padding:12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      background:rgba(4,11,27,.72);
+      border:1px solid var(--line);
+      border-radius:22px;
+      backdrop-filter:blur(18px);
+      box-shadow:0 12px 45px rgba(0,0,0,.22);
     }
 
-    .hero {
-      animation: fadeUp 1s ease;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      text-decoration:none;
+      min-width:max-content;
     }
 
-    .tag {
-      color: #58a6ff;
-      font-size: 15px;
-      margin-bottom: 15px;
+    .brand-mark{
+      width:43px;height:43px;
+      display:grid;place-items:center;
+      border-radius:13px;
+      font-weight:900;
+      font-size:18px;
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      box-shadow:0 0 28px rgba(56,189,248,.28);
     }
 
-    h1 {
-      font-size: clamp(42px, 8vw, 72px);
-      line-height: 1.1;
-      margin-bottom: 18px;
+    .brand-text strong{display:block;font-size:15px}
+    .brand-text span{display:block;color:var(--muted);font-size:11px}
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:5px;
     }
 
-    .highlight {
-      color: #58a6ff;
+    .nav-links a{
+      text-decoration:none;
+      color:#c9d5ee;
+      padding:8px 11px;
+      border-radius:10px;
+      font-size:13px;
+      transition:.25s;
     }
 
-    .intro {
-      color: #8b949e;
-      font-size: 20px;
-      max-width: 700px;
-      margin-bottom: 28px;
+    .nav-links a:hover{
+      color:white;
+      background:rgba(56,189,248,.1);
     }
 
-    .btn {
-      display: inline-block;
-      padding: 11px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: #f0f6fc;
-      border: 1px solid #30363d;
-      background: #161b22;
-      margin: 5px 5px 5px 0;
-      transition: 0.3s;
+    .socials{display:flex;gap:7px}
+    .socials a{
+      width:38px;height:38px;
+      display:grid;place-items:center;
+      text-decoration:none;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:rgba(255,255,255,.035);
+      font-size:16px;
+      transition:.25s;
+    }
+    .socials a:hover{transform:translateY(-3px);border-color:var(--blue)}
+
+    /* HERO */
+    .hero{
+      min-height:84vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:90px 0 70px;
+      position:relative;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
-      border-color: #58a6ff;
+    .orb{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(5px);
+      pointer-events:none;
+    }
+    .orb.one{
+      width:320px;height:320px;
+      left:-180px;top:130px;
+      background:radial-gradient(circle,rgba(56,189,248,.2),transparent 68%);
+    }
+    .orb.two{
+      width:400px;height:400px;
+      right:-220px;top:80px;
+      background:radial-gradient(circle,rgba(139,92,246,.2),transparent 68%);
     }
 
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 55px 20px;
+    .eyebrow{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 15px;
+      border:1px solid rgba(56,189,248,.3);
+      border-radius:999px;
+      color:#bcecff;
+      background:rgba(56,189,248,.06);
+      font-size:13px;
+      margin-bottom:22px;
     }
 
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
+    h1{
+      font-size:clamp(42px,7vw,76px);
+      line-height:1.03;
+      letter-spacing:-2px;
+      margin-bottom:20px;
     }
 
-    .about {
-      color: #c9d1d9;
-      max-width: 800px;
+    .gradient-text{
+      background:linear-gradient(90deg,#fff 5%,#60a5fa 42%,#a78bfa 72%,#e879f9);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
     }
 
-    .quote {
-      margin-top: 25px;
-      padding: 18px 20px;
-      border-left: 3px solid #58a6ff;
-      background: #161b22;
-      color: #c9d1d9;
-      font-style: italic;
-      border-radius: 0 8px 8px 0;
-      max-width: 800px;
+    .hero p{
+      max-width:720px;
+      margin:0 auto 30px;
+      color:var(--muted);
+      font-size:18px;
     }
 
-    /* PROJECTS */
+    .hero-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:11px 18px;
+      border-radius:12px;
+      text-decoration:none;
+      border:1px solid var(--line);
+      color:#eaf3ff;
+      background:rgba(255,255,255,.04);
+      transition:.25s;
+      font-size:14px;
     }
 
-    .project {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 14px;
-      padding: 28px;
-      transition: 0.3s;
+    .btn.primary{
+      background:linear-gradient(135deg,#159bd7,#7056e8);
+      border-color:transparent;
+      box-shadow:0 10px 35px rgba(56,189,248,.18);
     }
 
-    .project:hover {
-      transform: translateY(-5px);
-      border-color: #58a6ff;
-    }
+    .btn:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.55)}
 
-    .project h3 {
-      color: #58a6ff;
-      margin-bottom: 10px;
-      font-size: 21px;
+    /* SECTIONS */
+    section{padding:75px 0}
+    .section-head{text-align:center;margin-bottom:34px}
+    .section-kicker{
+      color:var(--cyan);
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:8px;
     }
+    h2{font-size:clamp(28px,4vw,42px);line-height:1.15;margin-bottom:10px}
+    .section-head p{color:var(--muted);max-width:680px;margin:auto}
 
-    .project p {
-      color: #8b949e;
-      margin-bottom: 18px;
+    /* ABOUT */
+    .about-card{
+      padding:32px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(145deg,rgba(12,25,51,.8),rgba(7,16,35,.7));
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
     }
-
-    .tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 18px;
+    .about-card::after{
+      content:"";
+      position:absolute;
+      width:220px;height:220px;
+      right:-100px;top:-100px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(139,92,246,.18),transparent 68%);
     }
-
-    .tech span {
-      font-size: 12px;
-      padding: 5px 9px;
-      border-radius: 15px;
-      background: #21262d;
-      color: #8b949e;
+    .about-card p{color:#c2cee3;max-width:900px}
+    .quote{
+      margin-top:22px;
+      padding:16px 18px;
+      border-left:3px solid var(--blue);
+      color:#d9e8ff;
+      background:rgba(56,189,248,.055);
+      border-radius:0 12px 12px 0;
+      font-style:italic;
     }
 
     /* SKILLS */
-
-    .skill-group {
-      margin-bottom: 25px;
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
     }
 
-    .skill-group h3 {
-      color: #58a6ff;
-      margin-bottom: 12px;
-      font-size: 18px;
+    .skill-card{
+      position:relative;
+      padding:25px;
+      min-height:225px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(145deg,rgba(10,23,48,.82),rgba(7,16,34,.72));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:.3s;
     }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .skill-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(56,189,248,.4);
+      box-shadow:0 20px 65px rgba(0,0,0,.4),0 0 30px rgba(56,189,248,.06);
     }
 
-    .skill {
-      background: #161b22;
-      border: 1px solid #30363d;
-      padding: 9px 15px;
-      border-radius: 20px;
-      color: #c9d1d9;
-      transition: 0.3s;
+    .skill-card::before{
+      content:"";
+      position:absolute;
+      width:120px;height:120px;
+      right:-55px;top:-55px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(56,189,248,.14),transparent 68%);
     }
 
-    .skill:hover {
-      transform: translateY(-3px);
-      border-color: #58a6ff;
+    .skill-icon{
+      width:50px;height:50px;
+      display:grid;place-items:center;
+      border-radius:15px;
+      font-size:22px;
+      background:linear-gradient(135deg,rgba(56,189,248,.18),rgba(139,92,246,.22));
+      border:1px solid rgba(56,189,248,.18);
+      margin-bottom:16px;
+    }
+
+    .skill-card h3{font-size:18px;margin-bottom:7px}
+    .skill-card p{font-size:13px;color:var(--muted);margin-bottom:17px}
+
+    .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .skill-tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:7px 10px;
+      border-radius:999px;
+      color:#dce8fc;
+      background:rgba(255,255,255,.045);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:12px;
+    }
+
+    .skill-tag b{color:#65d7ff}
+
+    /* PROJECTS */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .project{
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:linear-gradient(145deg,rgba(10,23,48,.82),rgba(7,16,34,.72));
+      transition:.3s;
+      box-shadow:var(--shadow);
+    }
+    .project:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.4)}
+    .project-top{display:flex;justify-content:space-between;gap:10px;align-items:start}
+    .project h3{font-size:21px;margin-bottom:8px}
+    .project p{color:var(--muted);font-size:14px;margin-bottom:18px}
+    .project-badge{
+      padding:5px 9px;border-radius:999px;
+      background:rgba(45,212,191,.09);
+      color:#73f3dc;border:1px solid rgba(45,212,191,.18);
+      font-size:10px;white-space:nowrap;
+    }
+    .tech{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+    .tech span{
+      font-size:11px;padding:5px 9px;border-radius:999px;
+      background:rgba(255,255,255,.045);color:#aebbd1;
+      border:1px solid rgba(255,255,255,.07);
     }
 
     /* EDUCATION */
-
-    .education-card {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 14px;
-      padding: 25px;
-      margin-bottom: 15px;
-      transition: 0.3s;
+    .timeline{position:relative;max-width:850px;margin:auto}
+    .timeline::before{
+      content:"";position:absolute;left:18px;top:8px;bottom:8px;width:1px;
+      background:linear-gradient(var(--blue),var(--purple),transparent);
     }
-
-    .education-card:hover {
-      border-color: #58a6ff;
-      transform: translateY(-3px);
+    .education-card{
+      position:relative;margin-bottom:18px;margin-left:55px;
+      padding:24px;border:1px solid var(--line);border-radius:20px;
+      background:rgba(10,22,45,.74);
     }
-
-    .education-card h3 {
-      color: #58a6ff;
-      margin-bottom: 6px;
+    .education-card::before{
+      content:"";position:absolute;left:-44px;top:29px;
+      width:13px;height:13px;border-radius:50%;
+      background:var(--blue);box-shadow:0 0 18px rgba(56,189,248,.6);
     }
-
-    .education-card p {
-      color: #8b949e;
-    }
+    .education-card h3{font-size:18px;color:#eef5ff}
+    .education-card p{color:var(--muted);font-size:14px}
 
     /* CONTACT */
-
-    .contact {
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 14px;
-      padding: 28px;
+    .contact{
+      text-align:center;
+      padding:42px 28px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:linear-gradient(135deg,rgba(16,32,66,.72),rgba(21,15,51,.68));
+      box-shadow:var(--shadow);
     }
-
-    .contact p {
-      color: #8b949e;
-      margin-bottom: 20px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .contact p{color:var(--muted);margin:0 auto 22px;max-width:650px}
+    .contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:9px}
 
     /* FOOTER */
-
-    footer {
-      text-align: center;
-      padding: 45px 20px;
-      color: #8b949e;
-      border-top: 1px solid #21262d;
-      margin-top: 30px;
+    footer{
+      margin-top:25px;
+      padding:34px 20px 42px;
+      text-align:center;
+      border-top:1px solid rgba(100,170,255,.12);
+      color:var(--muted);
     }
-
-    footer strong {
-      color: #58a6ff;
+    .footer-name{font-size:18px;color:#eef5ff;margin-bottom:5px}
+    footer strong{
+      background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-
-    footer .footer-name {
-      font-size: 18px;
-      margin-bottom: 8px;
-      color: #f0f6fc;
-    }
+    footer small{display:block;margin-top:7px;color:#71809c}
 
     /* ANIMATION */
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes floatIn{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
     }
+    .hero-content{animation:floatIn .9s ease both}
+    .skill-card,.project,.about-card,.education-card,.contact{animation:floatIn .7s ease both}
 
     /* MOBILE */
+    @media(max-width:900px){
+      .skills-grid{grid-template-columns:repeat(2,1fr)}
+      .nav-links{display:none}
+      nav{justify-content:space-between}
+    }
 
-    @media (max-width: 700px) {
-
-      header {
-        min-height: 75vh;
-      }
-
-      .intro {
-        font-size: 17px;
-      }
-
-      section {
-        padding: 40px 20px;
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .btn {
-        margin-bottom: 8px;
-      }
+    @media(max-width:700px){
+      .container{width:min(92%,560px)}
+      nav{top:8px;margin-top:8px;border-radius:17px}
+      .socials a{width:34px;height:34px}
+      .brand-mark{width:39px;height:39px}
+      .hero{min-height:78vh;padding-top:65px}
+      .hero p{font-size:16px}
+      section{padding:58px 0}
+      .skills-grid,.projects-grid{grid-template-columns:1fr}
+      .skill-card{min-height:auto}
+      .about-card,.project,.contact{padding:23px}
+      .timeline::before{left:9px}
+      .education-card{margin-left:32px}
+      .education-card::before{left:-29px}
+      .socials{gap:5px}
+      .socials a:nth-child(3){display:none}
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-
-  <header>
-    <div class="hero">
-
-      <div class="tag">
-        👋 Welcome to my portfolio
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="brand" href="#home">
+      <div class="brand-mark">AR</div>
+      <div class="brand-text">
+        <strong>Abhishek Rawat</strong>
+        <span>Full Stack Developer</span>
       </div>
+    </a>
 
-      <h1>
-        Hi, I'm <span class="highlight">Abhishek Rawat</span>
-      </h1>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
 
-      <p class="intro">
-        Full Stack Developer passionate about building modern,
-        responsive and user-friendly web applications.
+    <div class="socials">
+      <a href="https://github.com/aabhirawat067-ops" target="_blank" aria-label="GitHub">⌘</a>
+      <a href="https://www.linkedin.com/in/abhishek-rawat-112b052a1" target="_blank" aria-label="LinkedIn">in</a>
+      <a href="mailto:abhishekrawat6087@gmail.com" aria-label="Email">✉</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
+    <div class="hero-content container">
+      <div class="eyebrow">✦ Welcome to my portfolio</div>
+      <h1>Hi, I'm <span class="gradient-text">Abhishek Rawat</span></h1>
+      <p>
+        Full Stack Developer passionate about building modern, responsive
+        and user-friendly web applications that turn ideas into practical digital experiences.
       </p>
 
-      <a href="#projects" class="btn">
-        View Projects 🚀
-      </a>
-
-      <a href="#contact" class="btn">
-        Contact Me 📬
-      </a>
-
+      <div class="hero-actions">
+        <a href="#projects" class="btn primary">🚀 View Projects</a>
+        <a href="#contact" class="btn">📬 Contact Me</a>
+      </div>
     </div>
   </header>
 
+  <main class="container">
 
-  <!-- ABOUT -->
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head">
+        <div class="section-kicker">About me</div>
+        <h2>Building ideas into reality</h2>
+        <p>A little about my development journey and what I enjoy building.</p>
+      </div>
 
-  <section id="about">
-
-    <h2>👨‍💻 About Me</h2>
-
-    <p class="about">
-      I'm <strong>Abhishek Rawat</strong>, a Full Stack Developer with
-      a passion for building modern, responsive, and user-friendly web
-      applications. I enjoy turning ideas into practical digital
-      experiences using technologies like React, Next.js, Node.js,
-      Express, and Tailwind CSS. I also work with APIs, databases,
-      Git, and modern deployment platforms.
-      <br><br>
-      I'm continuously learning and improving my development skills
-      by building real-world projects and exploring new technologies.
-      My goal is to create clean, scalable, and meaningful applications
-      while growing as a professional software developer.
-    </p>
-
-    <div class="quote">
-      “I don't chase the future — I build what comes next.”
-    </div>
-
-  </section>
-
-
-  <!-- PROJECTS -->
-
-  <section id="projects">
-
-    <h2>🚀 My Projects</h2>
-
-    <div class="projects-grid">
-
-      <!-- MOVIE EXPLORER -->
-
-      <div class="project">
-
-        <h3>🎬 Movie Explorer</h3>
-
+      <div class="about-card">
         <p>
-          A full-stack movie discovery platform with trending,
-          popular and upcoming movies, search, genre filters,
-          movie details and favorites.
+          I'm <strong>Abhishek Rawat</strong>, a Full Stack Developer with a passion
+          for building modern, responsive, and user-friendly web applications.
+          I enjoy turning ideas into practical digital experiences using technologies
+          like React, Next.js, Node.js, Express, and Tailwind CSS. I also work with
+          APIs, databases, Git, and modern deployment platforms.
+          <br><br>
+          I'm continuously learning and improving my development skills by building
+          real-world projects and exploring new technologies. My goal is to create
+          clean, scalable, and meaningful applications while growing as a professional
+          software developer.
         </p>
 
-        <div class="tech">
-          <span>React</span>
-          <span>Vite</span>
-          <span>Node.js</span>
-          <span>Express</span>
-          <span>TMDB API</span>
+        <div class="quote">“I don't chase the future — I build what comes next.”</div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-head">
+        <div class="section-kicker">My skills</div>
+        <h2>Skills & <span class="gradient-text">Technologies</span></h2>
+        <p>Technologies and tools I use to build modern, scalable and user-friendly applications.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <article class="skill-card">
+          <div class="skill-icon">◈</div>
+          <h3>Frontend Development</h3>
+          <p>Creating responsive interfaces with modern frontend technologies.</p>
+          <div class="skill-tags">
+            <span class="skill-tag"><b>⚛</b> React</span>
+            <span class="skill-tag"><b>◇</b> Next.js</span>
+            <span class="skill-tag"><b>≋</b> Tailwind CSS</span>
+            <span class="skill-tag"><b>◆</b> HTML</span>
+            <span class="skill-tag"><b>◉</b> CSS</span>
+            <span class="skill-tag"><b>JS</b> JavaScript</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon">▦</div>
+          <h3>Backend & Database</h3>
+          <p>Building APIs and working with server-side applications and databases.</p>
+          <div class="skill-tags">
+            <span class="skill-tag"><b>⬡</b> Node.js</span>
+            <span class="skill-tag"><b>EX</b> Express.js</span>
+            <span class="skill-tag"><b>API</b> REST API</span>
+            <span class="skill-tag"><b>PG</b> PostgreSQL</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon">&lt;/&gt;</div>
+          <h3>Programming Languages</h3>
+          <p>Languages I use for programming, problem solving and application logic.</p>
+          <div class="skill-tags">
+            <span class="skill-tag"><b>C</b> C</span>
+            <span class="skill-tag"><b>C++</b> C++</span>
+            <span class="skill-tag"><b>Py</b> Python</span>
+            <span class="skill-tag"><b>JS</b> JavaScript</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon">⚒</div>
+          <h3>Tools & Deployment</h3>
+          <p>Tools and platforms I use for development, version control and deployment.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">◆ Git</span>
+            <span class="skill-tag">◉ GitHub</span>
+            <span class="skill-tag">⚡ Vite</span>
+            <span class="skill-tag">▲ Vercel</span>
+            <span class="skill-tag">▣ GitHub Pages</span>
+            <span class="skill-tag">☁ Render</span>
+            <span class="skill-tag">⌘ VS Code</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon">✦</div>
+          <h3>Other Skills</h3>
+          <p>Practical skills that support my development workflow and projects.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">🧩 Problem Solving</span>
+            <span class="skill-tag">🤝 Team Collaboration</span>
+            <span class="skill-tag">💬 Communication</span>
+            <span class="skill-tag">⏱ Time Management</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-icon">↗</div>
+          <h3>Development Focus</h3>
+          <p>Areas I focus on while building and improving my projects.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Responsive UI</span>
+            <span class="skill-tag">API Integration</span>
+            <span class="skill-tag">Database Work</span>
+            <span class="skill-tag">Deployment</span>
+            <span class="skill-tag">Clean Code</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-head">
+        <div class="section-kicker">My work</div>
+        <h2>Featured <span class="gradient-text">Projects</span></h2>
+        <p>Some of the applications I have built while learning and working with modern web technologies.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <h3>🎬 Movie Explorer</h3>
+            </div>
+            <span class="project-badge">Featured</span>
+          </div>
+          <p>
+            A movie discovery platform with trending, popular and upcoming movies,
+            search, genre filters, movie details and favorites.
+          </p>
+          <div class="tech">
+            <span>React</span><span>Vite</span><span>Node.js</span>
+            <span>Express</span><span>TMDB API</span>
+          </div>
+          <a href="https://aabhirawat067-ops.github.io/movie-explorer/" target="_blank" class="btn primary">Live Demo →</a>
+          <a href="https://github.com/aabhirawat067-ops/movie-explorer" target="_blank" class="btn">Frontend →</a>
+          <a href="https://github.com/aabhirawat067-ops/Movie-backend-" target="_blank" class="btn">Backend →</a>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <div><h3>🌤️ Weather Forecast App</h3></div>
+            <span class="project-badge">Live</span>
+          </div>
+          <p>
+            A responsive weather application with city search, current location
+            detection, current weather and a 7-day forecast with dark and light mode.
+          </p>
+          <div class="tech">
+            <span>React</span><span>Vite</span><span>JavaScript</span><span>Open-Meteo API</span>
+          </div>
+          <a href="https://aabhirawat067-ops.github.io/weather-forecast-app/" target="_blank" class="btn primary">Live Demo →</a>
+          <a href="https://github.com/aabhirawat067-ops/weather-forecast-app" target="_blank" class="btn">GitHub →</a>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <div><h3>🍎 Smart India Nutrition</h3></div>
+            <span class="project-badge">Full Stack</span>
+          </div>
+          <p>
+            A nutrition-focused web application providing food information and
+            personalized nutrition-related recommendations with backend integration.
+          </p>
+          <div class="tech">
+            <span>React</span><span>Node.js</span><span>Express</span><span>PostgreSQL</span>
+          </div>
+          <a href="https://smart-india-nutrition.vercel.app/" target="_blank" class="btn primary">Live Project →</a>
+          <a href="https://github.com/Shubham-hash1/Smart-India-Nutrition.git" target="_blank" class="btn">GitHub →</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-head">
+        <div class="section-kicker">Education</div>
+        <h2>Academic <span class="gradient-text">Journey</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="education-card">
+          <h3>Master of Computer Applications (MCA)</h3>
+          <p>HNB Garhwal University</p>
+          <p>Passed Out: 2026</p>
         </div>
 
-        <a
-          href="https://aabhirawat067-ops.github.io/movie-explorer/"
-          target="_blank"
-          class="btn">
-          Live Demo →
-        </a>
-
-        <a
-          href="https://github.com/aabhirawat067-ops/movie-explorer"
-          target="_blank"
-          class="btn">
-          Frontend →
-        </a>
-
-        <a
-          href="https://github.com/aabhirawat067-ops/Movie-backend-"
-          target="_blank"
-          class="btn">
-          Backend →
-        </a>
-
-      </div>
-
-
-      <!-- WEATHER APP -->
-
-      <div class="project">
-
-        <h3>🌤️ Weather Forecast App</h3>
-
-        <p>
-          A responsive weather application with city search,
-          current location detection, current weather and
-          a 7-day forecast with dark and light mode.
-        </p>
-
-        <div class="tech">
-          <span>React</span>
-          <span>Vite</span>
-          <span>JavaScript</span>
-          <span>Open-Meteo API</span>
+        <div class="education-card">
+          <h3>Bachelor of Computer Applications (BCA)</h3>
+          <p>Advance Institute of Science and Technology, Selaqui, Dehradun</p>
+          <p>Passed Out: 2023</p>
         </div>
+      </div>
+    </section>
 
-        <a
-          href="https://aabhirawat067-ops.github.io/weather-forecast-app/"
-          target="_blank"
-          class="btn">
-          Live Demo →
-        </a>
-
-        <a
-          href="https://github.com/aabhirawat067-ops/weather-forecast-app"
-          target="_blank"
-          class="btn">
-          GitHub →
-        </a>
-
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <div class="section-kicker">Get in touch</div>
+        <h2>Let's build something <span class="gradient-text">together.</span></h2>
       </div>
 
+      <div class="contact">
+        <p>Have an idea, want to collaborate, or just want to say hello? Feel free to connect with me.</p>
 
-      <!-- NUTRISMART -->
-
-      <div class="project">
-
-        <h3>🍎 Smart India Nutrition</h3>
-
-        <p>
-          A nutrition-focused web application providing food
-          information and personalized nutrition-related
-          recommendations with backend integration.
-        </p>
-
-        <div class="tech">
-          <span>React</span>
-          <span>Node.js</span>
-          <span>Express</span>
-          <span>PostgreSQL</span>
+        <div class="contact-links">
+          <a href="mailto:abhishekrawat6087@gmail.com" class="btn primary">📧 Email</a>
+          <a href="https://github.com/aabhirawat067-ops" target="_blank" class="btn">💻 GitHub</a>
+          <a href="https://www.linkedin.com/in/abhishek-rawat-112b052a1" target="_blank" class="btn">💼 LinkedIn</a>
+          <a href="https://www.instagram.com/abhi_rawat027" target="_blank" class="btn">📸 Instagram</a>
+          <a href="https://www.facebook.com/share/1E2dDtmNbi/" target="_blank" class="btn">👍 Facebook</a>
         </div>
-
-        <a
-          href="https://smart-india-nutrition.vercel.app/"
-          target="_blank"
-          class="btn">
-          Live Project →
-        </a>
-
-        <a
-          href="https://github.com/Shubham-hash1/Smart-India-Nutrition.git"
-          target="_blank"
-          class="btn">
-          GitHub →
-        </a>
-
       </div>
+    </section>
 
-    </div>
-
-  </section>
-
-
-  <!-- SKILLS -->
-
-  <section id="skills">
-
-    <h2>💻 Skills</h2>
-
-
-    <div class="skill-group">
-
-      <h3>Programming Languages</h3>
-
-      <div class="skills">
-        <span class="skill">C</span>
-        <span class="skill">C++</span>
-        <span class="skill">Python</span>
-        <span class="skill">JavaScript</span>
-      </div>
-
-    </div>
-
-
-    <div class="skill-group">
-
-      <h3>Frontend</h3>
-
-      <div class="skills">
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">React</span>
-        <span class="skill">Next.js</span>
-        <span class="skill">Tailwind CSS</span>
-      </div>
-
-    </div>
-
-
-    <div class="skill-group">
-
-      <h3>Backend & Database</h3>
-
-      <div class="skills">
-        <span class="skill">Node.js</span>
-        <span class="skill">Express.js</span>
-        <span class="skill">REST API</span>
-        <span class="skill">PostgreSQL</span>
-      </div>
-
-    </div>
-
-
-    <div class="skill-group">
-
-      <h3>Tools & Deployment</h3>
-
-      <div class="skills">
-        <span class="skill">Git</span>
-        <span class="skill">GitHub</span>
-        <span class="skill">VS Code</span>
-        <span class="skill">Vite</span>
-        <span class="skill">GitHub Pages</span>
-        <span class="skill">Render</span>
-        <span class="skill">Vercel</span>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EDUCATION -->
-
-  <section id="education">
-
-    <h2>🎓 Education</h2>
-
-
-    <div class="education-card">
-
-      <h3>Master of Computer Applications (MCA)</h3>
-
-      <p>
-        HNB Garhwal University
-      </p>
-
-      <p>
-        Passed Out: 2026
-      </p>
-
-    </div>
-
-
-    <div class="education-card">
-
-      <h3>Bachelor of Computer Applications (BCA)</h3>
-
-      <p>
-        Advance Institute of Science and Technology,
-        Selaqui, Dehradun
-      </p>
-
-      <p>
-        Passed Out: 2023
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-
-  <section id="contact">
-
-    <h2>📬 Contact Me</h2>
-
-    <div class="contact">
-
-      <p>
-        Have an idea, want to collaborate, or just want to say hello?
-        Feel free to connect with me.
-      </p>
-
-      <div class="contact-links">
-
-
-        <!-- EMAIL -->
-
-        <a
-          href="mailto:abhishekrawat6087@gmail.com"
-          class="btn">
-
-          📧 Email
-
-        </a>
-
-
-        <!-- GITHUB -->
-
-        <a
-          href="https://github.com/aabhirawat067-ops"
-          target="_blank"
-          class="btn">
-
-          💻 GitHub
-
-        </a>
-
-
-        <!-- LINKEDIN -->
-
-        <a
-          href="https://www.linkedin.com/in/abhishek-rawat-112b052a1"
-          target="_blank"
-          class="btn">
-
-          💼 LinkedIn
-
-        </a>
-
-
-        <!-- INSTAGRAM -->
-
-        <a
-          href="https://www.instagram.com/abhi_rawat027"
-          target="_blank"
-          class="btn">
-
-          📸 Instagram
-
-        </a>
-
-
-        <!-- FACEBOOK -->
-
-        <a
-          href="https://www.facebook.com/share/1E2dDtmNbi/"
-          target="_blank"
-          class="btn">
-
-          👍 Facebook
-
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
+  </main>
 
   <!-- FOOTER -->
-
   <footer>
-
-    <div class="footer-name">
-      Made with ❤️ by <strong>Abhishek Rawat</strong>
-    </div>
-
-    <p>
-      Full Stack Developer • where ideas meet code
-    </p>
-
-    <p>
-      © 2026 Abhishek Rawat. All rights reserved.
-    </p>
-
+    <div class="footer-name">Made by <strong>Abhishek Rawat</strong></div>
+    <p>Full Stack Developer • where ideas meet code</p>
+    <small>© 2026 Abhishek Rawat. All rights reserved.</small>
   </footer>
-
 
 </body>
 </html>
-```
