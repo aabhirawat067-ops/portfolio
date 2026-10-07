@@ -30,17 +30,6 @@ A personal portfolio showcasing my projects, skills, and journey as a developer.
 
 ---
 
-## 🍎 Featured Project
-
-### Smart India Nutrition
-
-A web project designed to make nutrition-related information simple, useful, and accessible.
-
-**Tech:** HTML • CSS • JavaScript
-
-👉 **[🚀 View Smart India Nutrition](https://smart-india-nutrition.vercel.app/)**
-
----
 
 ## 🛠️ Tech Stack
 
